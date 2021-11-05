@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4540549255750164956}
   - component: {fileID: 5787515203241266139}
   - component: {fileID: 4092546083870333584}
+  - component: {fileID: 382059380}
   m_Layer: 8
   m_Name: Rock2
   m_TagString: Rock
@@ -177,3 +178,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   indicator: {fileID: 3771845339100499299, guid: 698b2307b44c7c649a99bd0bf9de80c7,
     type: 3}
+--- !u!95 &382059380
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2308471297591646220}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3f21702e5560c7445b5c96353560bec0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

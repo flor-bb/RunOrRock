@@ -10,13 +10,14 @@ public class Player : MonoBehaviour
     public int points;
 
     private Rigidbody2D _rigid;
-    private bool _resetJump = false;
     [SerializeField] private float _speed = 5.0f;
     [SerializeField] private LayerMask _groundLayer = 1<<8;
     private SpriteRenderer _playerSprite;
     protected Animator anim;
     private UIManager uiManager;
     public GameObject gameOverScreen;
+    public GameObject scoreBarrier;
+    [SerializeField] private GameObject canon;
 
     public int health;
 
@@ -24,6 +25,7 @@ public class Player : MonoBehaviour
 
     void Start()
     {
+        scoreBarrier.SetActive(true);
         anim = GetComponentInChildren<Animator>();
         _rigid = GetComponent<Rigidbody2D>();
  
@@ -76,13 +78,24 @@ public class Player : MonoBehaviour
         if (collision.gameObject.tag == "Rock")
         {
             health--;
-            Destroy(collision.gameObject);
             if(health == 0)
             {
                 Destroy(gameObject);
                 gameOverScreen.SetActive(true);
-
+                scoreBarrier.SetActive(false);
             }
+        }
+
+        if (collision.gameObject.tag == "HealthItem")
+        {
+            health += 2;
+            Destroy(collision.gameObject);
+        }
+
+        if (collision.gameObject.tag == "CanonItem")
+        {
+            Instantiate(canon, new Vector3(11.31f, -0.68f, transform.position.z), Quaternion.identity);
+            Destroy(collision.gameObject);
         }
     }
 

@@ -17,5 +17,15 @@ public class ScoreCounter : MonoBehaviour
        
 
         }
+
+
+        if (collision.tag == "Bird")
+        {
+      
+            Destroy(collision.gameObject);
+
+        }
+
+
     }
 }

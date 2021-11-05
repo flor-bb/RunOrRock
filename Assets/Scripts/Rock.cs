@@ -9,11 +9,13 @@ public class Rock : MonoBehaviour
     private Rigidbody2D rb;
     private float randomSpeedX, randomSpeedY, randomRotateSpeed;
     public GameObject indicator;
-    GameObject tempIndicator;
+   private  GameObject tempIndicator;
+    private Animator anim;
 
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
+        anim = gameObject.GetComponent<Animator>();
         randomSpeedX = RandomSpeedX();
         randomSpeedY = RandomSpeedY();
         randomRotateSpeed = RandomRotateSpeed();
@@ -42,12 +44,35 @@ public class Rock : MonoBehaviour
 
         }
 
+        if (collision.gameObject.tag == "Player")
+        {
+
+
+
+            StartCoroutine(waitForExplosion());
+
+
+
+        }
+
+    }
+
+   
+
+    IEnumerator waitForExplosion()
+    {
+        rb.velocity = Vector3.zero;
+        anim.SetTrigger("Explode");
+        //Wait for 4 seconds
+        yield return new WaitForSeconds(0.5f);
+        Destroy(gameObject);
 
     }
 
 
 
-    private float RandomSpeedX()
+
+private float RandomSpeedX()
     {
        float x =  Random.Range(100f, 400f);
 
