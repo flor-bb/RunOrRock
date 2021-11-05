@@ -10,6 +10,7 @@ public class Bird : MonoBehaviour
 
     [SerializeField] private GameObject healthPack;
     [SerializeField] private GameObject canonPack;
+    [SerializeField] private GameObject shieldPack;
     private bool spawnItem= true;
     private int spawnPoint;
     private int choosenItem;
@@ -19,7 +20,7 @@ public class Bird : MonoBehaviour
 
         _rigid = GetComponent<Rigidbody2D>();
         spawnPoint = RandomItemSpawnPoint();
-        choosenItem = RandomItemChooser();
+        choosenItem =  RandomItemChooser();
     }
 
 
@@ -53,12 +54,16 @@ public class Bird : MonoBehaviour
 
                     break;
 
-                default:
-                    //TODO change this with shield when Ready
-                    Instantiate(canonPack, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+                case 3:
+     
+                    Instantiate(shieldPack, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
                     spawnPoint = RandomItemSpawnPoint();
                     choosenItem = RandomItemChooser();
                     spawnItem = false;
+
+                    break;
+
+                default:
 
                     break;
 
@@ -80,7 +85,7 @@ public class Bird : MonoBehaviour
 
     private int RandomItemChooser()
     {
-        int x = Random.Range(1, 3);
+        int x = Random.Range(1, 4);
 
         return x;
     }

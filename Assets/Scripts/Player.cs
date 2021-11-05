@@ -18,6 +18,8 @@ public class Player : MonoBehaviour
     public GameObject gameOverScreen;
     public GameObject scoreBarrier;
     [SerializeField] private GameObject canon;
+    [SerializeField] private GameObject elefant;
+    [SerializeField] private GameObject shield;
 
     public int health;
 
@@ -94,9 +96,17 @@ public class Player : MonoBehaviour
 
         if (collision.gameObject.tag == "CanonItem")
         {
-            Instantiate(canon, new Vector3(11.31f, -0.68f, transform.position.z), Quaternion.identity);
+            Instantiate(canon, new Vector3(09.31f, -0.68f, transform.position.z), Quaternion.identity);
+            Instantiate(elefant, new Vector3(11.1f, -0.63f, transform.position.z), Quaternion.identity);
             Destroy(collision.gameObject);
         }
+
+        if (collision.gameObject.tag == "ShieldItem")
+        {
+            Instantiate(shield, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+            Destroy(collision.gameObject);
+        }
+
     }
 
 

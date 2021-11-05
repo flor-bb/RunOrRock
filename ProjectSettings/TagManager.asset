@@ -12,6 +12,8 @@ TagManager:
   - HealthItem
   - CanonItem
   - Rocket
+  - Shield
+  - ShieldItem
   layers:
   - Default
   - TransparentFX
@@ -26,7 +28,7 @@ TagManager:
   - Bird
   - Item
   - Rocket
-  - 
+  - Shield
   - 
   - 
   - 
