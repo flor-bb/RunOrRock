@@ -6,16 +6,19 @@ public class Shield : MonoBehaviour
 {
 
 
+    private Animator anim;
 
     void Start()
     {
-        DetroyShield();
+
+        StartCoroutine(DestroyShield());
     }
 
     // Update is called once per frame
     void Update()
     {
-        UpdatePosition();   
+        UpdatePosition();
+        anim = GetComponentInChildren<Animator>();
     }
 
 
@@ -42,12 +45,17 @@ public class Shield : MonoBehaviour
         }
     }
 
-    private IEnumerator DetroyShield()
+    private IEnumerator DestroyShield()
     {
 
+        yield return new WaitForSeconds(17);
+        anim.SetTrigger("Alert");
+
+
+
         //Destorys the canon
-        yield return new WaitForSeconds(10f);
-        Destroy(gameObject);
+        yield return new WaitForSeconds(3);
+        Destroy(this.gameObject);
 
     }
 

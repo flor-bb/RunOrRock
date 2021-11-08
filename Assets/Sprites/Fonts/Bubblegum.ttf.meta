@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 712d23759064d554e842ac1c68a4b19a
+guid: b6b232b7394c5774ba097e1520637edd
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -8,9 +8,9 @@ TrueTypeFontImporter:
   characterSpacing: 0
   characterPadding: 1
   includeFontData: 1
-  fontName: Pokemon Hollow
+  fontName: BubbleGum
   fontNames:
-  - Pokemon Hollow
+  - BubbleGum
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0

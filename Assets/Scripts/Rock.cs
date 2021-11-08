@@ -99,7 +99,7 @@ private float RandomSpeedX()
     {
 
 
-        if(transform.position.y >= 6)
+        if(transform.position.y >= 7)
         {
             if (tempIndicator == null)
             {

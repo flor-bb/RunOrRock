@@ -20,7 +20,7 @@ public class Bird : MonoBehaviour
 
         _rigid = GetComponent<Rigidbody2D>();
         spawnPoint = RandomItemSpawnPoint();
-        choosenItem =  RandomItemChooser();
+        choosenItem = RandomItemChooser();
     }
 
 
@@ -29,6 +29,8 @@ public class Bird : MonoBehaviour
 
         _rigid.velocity = new Vector2(_speed, _rigid.velocity.y);
         SpawnItems();
+
+        Debug.Log(RandomItemChooser());
     }
 
     private void SpawnItems()

@@ -1,11 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
 
     private static GameManager instance;
+    [SerializeField] private Button helpButton;
+    private int helpScore = 0;
+    private Image helpButtonImg;
+   [SerializeField] private Text helpText;
 
     public static GameManager Instance
     {
@@ -25,10 +30,29 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        score = 0;
         instance = this;
-
+        score = 0;
+        helpButton.enabled = false;
+        helpButtonImg = helpButton.GetComponent<Image>();
+        helpText.enabled = false;
+        helpButtonImg.enabled = false;
         player = GameObject.FindWithTag("Player").GetComponent<Player>();
+
+    }
+
+    private void Update()
+    {
+        
+        if(score >= helpScore)
+        {
+
+        }
+
+
+    }
+
+    private void DoNothing()
+    {
 
     }
 
