@@ -12,7 +12,7 @@ public class Rock : MonoBehaviour
    private  GameObject tempIndicator;
     private Animator anim;
 
-    void Start()
+    void Start() 
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
         anim = gameObject.GetComponent<Animator>();

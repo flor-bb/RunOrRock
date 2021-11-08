@@ -39,7 +39,7 @@ public class Shield : MonoBehaviour
 
             Animator otherAnim = collision.GetComponent<Animator>();
             Rigidbody2D otherRB = collision.GetComponent<Rigidbody2D>();
-            StartCoroutine(waitForExplosion(otherAnim, collision.gameObject, otherRB));
+            StartCoroutine(WaitForExplosion(otherAnim, collision.gameObject, otherRB));
             GameManager.Instance.score++;
 
         }
@@ -59,7 +59,7 @@ public class Shield : MonoBehaviour
 
     }
 
-    IEnumerator waitForExplosion(Animator anim, GameObject other, Rigidbody2D rb)
+    IEnumerator WaitForExplosion(Animator anim, GameObject other, Rigidbody2D rb)
     {
         rb.velocity = Vector3.zero;
         anim.SetTrigger("Explode");

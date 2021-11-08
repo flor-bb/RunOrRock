@@ -21,4 +21,38 @@ public class AttackBird : MonoBehaviour
         rb.velocity = new Vector2(speed, rb.velocity.y);
 
     }
+
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+
+
+        if (collision.tag == "Rock")
+        {
+            Animator otherAnim = collision.GetComponent<Animator>();
+            Rigidbody2D otherRB = collision.GetComponent<Rigidbody2D>();
+            StartCoroutine(waitForExplosion(otherAnim, collision.gameObject, otherRB));
+            GameManager.Instance.score++;
+    
+        }
+
+        if (collision.tag == "BirdBarrier")
+        {
+
+            Destroy(gameObject);
+        }
+
+    }
+
+    //let the Rock explode
+    IEnumerator waitForExplosion(Animator anim, GameObject other, Rigidbody2D rb)
+    {
+        rb.velocity = Vector3.zero;
+        anim.SetTrigger("Explode");
+        //Wait for 4 seconds
+        yield return new WaitForSeconds(0.5f);
+        Destroy(other);
+
+    }
+
 }

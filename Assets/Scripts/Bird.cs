@@ -30,7 +30,7 @@ public class Bird : MonoBehaviour
         _rigid.velocity = new Vector2(_speed, _rigid.velocity.y);
         SpawnItems();
 
-        Debug.Log(RandomItemChooser());
+
     }
 
     private void SpawnItems()
