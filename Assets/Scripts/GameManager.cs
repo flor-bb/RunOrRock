@@ -9,12 +9,12 @@ public class GameManager : MonoBehaviour
     private static GameManager instance;
     [SerializeField] private Button helpButton;
     //TODO Change this later
-    private int helpScore = 5;
-    private int vulcanoScore = 5;
+    private int helpScore = 20;
+    private int vulcanoScore = 23;
     private Image helpButtonImg;
-   [SerializeField] private Text helpText;
+    [SerializeField] private Text helpText;
     private int helpCounter = 0;
-   [SerializeField] private GameObject alertScreen;
+    [SerializeField] private GameObject alertScreen;
     private bool isAlert = true;
 
     public static GameManager Instance
@@ -58,14 +58,14 @@ public class GameManager : MonoBehaviour
         {
             isAlert = false;
 
-         
-                StartCoroutine(AlertSreenBlinker());
+
+            StartCoroutine(AlertSreenBlinker());
 
         }
     }
 
 
-    
+
 
     private void UpdateAirSupport()
     {
@@ -101,27 +101,27 @@ public class GameManager : MonoBehaviour
     }
 
 
-    private int calculateHelpScore( int x)
+    private int calculateHelpScore(int x)
     {
 
         int y = Random.Range(30, 40);
 
-        if(score <= 100)
+        if (score <= 100)
         {
             return x += score + y;
-           
+
         }
         else
         {
-            return x += (score / 2) +y;
+            return x += (score / 2) + y;
         }
 
-  
+
 
     }
 
     IEnumerator AlertSreenBlinker()
- 
+
     {
         for (int i = 0; i < 3; i++)
         {
@@ -139,7 +139,7 @@ public class GameManager : MonoBehaviour
             }
 
         }
-            
+
 
     }
 

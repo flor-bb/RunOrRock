@@ -31,7 +31,7 @@ public class BirdSpawner : MonoBehaviour
 
     private int RandomScoreIncrease()
     {
-        int x = Random.Range(5, 20);
+        int x = Random.Range(8, 14);
 
         return x;
     }

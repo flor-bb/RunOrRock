@@ -41,16 +41,27 @@ public class UIManager : MonoBehaviour
     private void UpdateTexts()
     {
 
-        scoreText.text = "Score: " + GameManager.Instance.score;
+        if(scoreText!= null)
+        {
+            scoreText.text = "Score: " + GameManager.Instance.score;
 
-        livesText.text = "Lives: " + GameManager.Instance.player.health;
+        }
+        if(livesText!= null)
+        {
+            livesText.text = "Lives: " + GameManager.Instance.player.health;
+        }
+        
 
     }
 
     public void RestartGame()
     {
         SceneManager.LoadScene("Game");
-        gameOverScreen.SetActive(false);
+        if(gameOverScreen!= null)
+        {
+            gameOverScreen.SetActive(false);
+        }
+
     }
 
     public void MainMenu()
@@ -58,4 +69,18 @@ public class UIManager : MonoBehaviour
         SceneManager.LoadScene("Main_Menu");
 
     }
+
+    public void StartGame()
+    {
+        SceneManager.LoadScene("Game");
+    }
+
+    public void QuitGame()
+    {
+
+    
+            Application.Quit();
+   
+    }
+
 }

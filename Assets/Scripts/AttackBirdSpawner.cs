@@ -6,10 +6,10 @@ public class AttackBirdSpawner : MonoBehaviour
 {
 
     [SerializeField] private GameObject attackBird;
-   
+
     void Start()
     {
-     
+
     }
 
 
@@ -18,7 +18,7 @@ public class AttackBirdSpawner : MonoBehaviour
 
         StartCoroutine(DelayBird());
 
-        GameManager.Instance.setHelpCounter((GameManager.Instance.getHelpCounter()-1));
+        GameManager.Instance.setHelpCounter((GameManager.Instance.getHelpCounter() - 1));
 
     }
 
@@ -29,41 +29,41 @@ public class AttackBirdSpawner : MonoBehaviour
         int x = 8;
         ArrayList usedNumbers = new ArrayList();
         usedNumbers.Add(x);
-        float delay;
+        float delay = Random.Range(0.1f, 0.4f); ;
 
-       for(int i = 0; i < 8; i++)
+        for (int i = 0; i < 9; i++)
         {
+            usedNumbers.Add(x);
 
 
-  
             switch (x)
             {
+
+
 
                 case 0:
                     Instantiate(attackBird, new Vector3(20, -0.93f, transform.position.z), Quaternion.identity);
 
-                    delay = Random.Range(0.1f, 0.4f);
+
                     yield return new WaitForSeconds(delay);
 
                     break;
                 case 1:
                     Instantiate(attackBird, new Vector3(20, 1.25f, transform.position.z), Quaternion.identity);
 
-                    delay = Random.Range(0.1f, 0.4f);
+
                     yield return new WaitForSeconds(delay);
 
                     break;
                 case 2:
                     Instantiate(attackBird, new Vector3(20, 3.4f, transform.position.z), Quaternion.identity);
 
-                    delay = Random.Range(0.1f, 0.4f);
                     yield return new WaitForSeconds(delay);
 
                     break;
                 case 3:
                     Instantiate(attackBird, new Vector3(20, 5.55f, transform.position.z), Quaternion.identity);
 
-                    delay = Random.Range(0.1f, 0.4f);
                     yield return new WaitForSeconds(delay);
 
                     break;
@@ -72,39 +72,37 @@ public class AttackBirdSpawner : MonoBehaviour
 
                     Instantiate(attackBird, new Vector3(20, 7.7f, transform.position.z), Quaternion.identity);
 
-                    delay = Random.Range(0.1f, 0.4f);
                     yield return new WaitForSeconds(delay);
 
                     break;
                 case 5:
-                    Instantiate(attackBird, new Vector3(20, 7.7f, transform.position.z), Quaternion.identity);
+                    Instantiate(attackBird, new Vector3(20, 10.1f, transform.position.z), Quaternion.identity);
 
-                    delay = Random.Range(0.1f, 0.4f);
                     yield return new WaitForSeconds(delay);
 
                     break;
                 case 6:
 
 
-                    Instantiate(attackBird, new Vector3(20, 10.1f, transform.position.z), Quaternion.identity);
+                    Instantiate(attackBird, new Vector3(20, 12.1f, transform.position.z), Quaternion.identity);
 
-                    delay = Random.Range(0.1f, 0.4f);
                     yield return new WaitForSeconds(delay);
 
                     break;
                 case 7:
 
 
-                    Instantiate(attackBird, new Vector3(20, 12.38f, transform.position.z), Quaternion.identity);
-                    delay = Random.Range(0.1f, 0.4f);
+                    Instantiate(attackBird, new Vector3(20, 14.18f, transform.position.z), Quaternion.identity);
+
                     yield return new WaitForSeconds(delay);
 
                     break;
                 case 8:
 
-                    Instantiate(attackBird, new Vector3(20, 14.78f, transform.position.z), Quaternion.identity);
 
-                    delay = Random.Range(0.1f, 0.4f);
+                    Instantiate(attackBird, new Vector3(20, 16.18f, transform.position.z), Quaternion.identity);
+
+
                     yield return new WaitForSeconds(delay);
 
                     break;
@@ -114,9 +112,9 @@ public class AttackBirdSpawner : MonoBehaviour
             do
             {
                 x = Random.Range(0, 9);
-            } while (IsNumberInArrayList(usedNumbers, x));
-
-        } 
+            } while (IsNumberInArrayList(usedNumbers, x) && (i + 1) != 9);
+            delay = Random.Range(0.1f, 0.3f);
+        }
 
 
 
@@ -126,9 +124,9 @@ public class AttackBirdSpawner : MonoBehaviour
     private bool IsNumberInArrayList(ArrayList list, int x)
     {
 
-        for(int i = 0; i < list.Count; i++)
+        for (int i = 0; i < list.Count; i++)
         {
-            if(x.Equals(list[i]))
+            if (x.Equals(list[i]))
             {
                 return true;
             }

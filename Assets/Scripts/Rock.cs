@@ -89,7 +89,7 @@ private float RandomSpeedX()
 
     private float RandomRotateSpeed()
     {
-        float r = Random.Range(200f, 400f);
+        float r = Random.Range(500f, 600f);
 
         return r;
     }

@@ -48,7 +48,7 @@ public class Shield : MonoBehaviour
     private IEnumerator DestroyShield()
     {
 
-        yield return new WaitForSeconds(17);
+        yield return new WaitForSeconds(12);
         anim.SetTrigger("Alert");
 
 
@@ -61,6 +61,7 @@ public class Shield : MonoBehaviour
 
     IEnumerator WaitForExplosion(Animator anim, GameObject other, Rigidbody2D rb)
     {
+        
         rb.velocity = Vector3.zero;
         anim.SetTrigger("Explode");
         //Wait for 4 seconds
