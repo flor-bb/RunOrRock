@@ -31,8 +31,8 @@ public class Rock : MonoBehaviour
     {
        if (collision.gameObject.tag == "Ground"){
 
-
-            if(randomSpeedX-200f <= 0f)
+            FindObjectOfType<AudioManager>().Play("RockGround");
+            if (randomSpeedX-200f <= 0f)
             {
                 rb.AddForce(new Vector2(randomSpeedX, randomSpeedY - 200f));
             }
@@ -63,6 +63,7 @@ public class Rock : MonoBehaviour
     {
         rb.velocity = Vector3.zero;
         anim.SetTrigger("Explode");
+        FindObjectOfType<AudioManager>().Play("RockExplosion");
         //Wait for 4 seconds
         yield return new WaitForSeconds(0.5f);
         Destroy(gameObject);

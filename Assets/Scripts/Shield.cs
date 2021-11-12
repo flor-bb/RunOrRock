@@ -12,6 +12,7 @@ public class Shield : MonoBehaviour
     {
 
         StartCoroutine(DestroyShield());
+        FindObjectOfType<AudioManager>().Play("Shield");
     }
 
     // Update is called once per frame
@@ -56,6 +57,7 @@ public class Shield : MonoBehaviour
         //Destorys the canon
         yield return new WaitForSeconds(3);
         Destroy(this.gameObject);
+        FindObjectOfType<AudioManager>().Stop("Shield");
 
     }
 
@@ -64,6 +66,7 @@ public class Shield : MonoBehaviour
         
         rb.velocity = Vector3.zero;
         anim.SetTrigger("Explode");
+        FindObjectOfType<AudioManager>().Play("RockExplosion");
         //Wait for 4 seconds
         yield return new WaitForSeconds(0.5f);
         Destroy(other);

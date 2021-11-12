@@ -12,8 +12,9 @@ public class AttackBird : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        speed = -5f;
-
+        speed = -3f;
+        FindObjectOfType<AudioManager>().Play("AirSupport");
+        
     }
 
     void Update()
@@ -40,6 +41,7 @@ public class AttackBird : MonoBehaviour
         {
 
             Destroy(gameObject);
+            FindObjectOfType<AudioManager>().Stop("AirSupport");
         }
 
     }
@@ -49,6 +51,7 @@ public class AttackBird : MonoBehaviour
     {
         rb.velocity = Vector3.zero;
         anim.SetTrigger("Explode");
+        FindObjectOfType<AudioManager>().Play("RockExplosion");
         //Wait for 4 seconds
         yield return new WaitForSeconds(0.5f);
         Destroy(other);

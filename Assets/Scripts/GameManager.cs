@@ -9,8 +9,8 @@ public class GameManager : MonoBehaviour
     private static GameManager instance;
     [SerializeField] private Button helpButton;
     //TODO Change this later
-    private int helpScore = 20;
-    private int vulcanoScore = 23;
+    private int helpScore = 1;
+    private int vulcanoScore = 2;
     private Image helpButtonImg;
     [SerializeField] private Text helpText;
     private int helpCounter = 0;
@@ -60,6 +60,7 @@ public class GameManager : MonoBehaviour
 
 
             StartCoroutine(AlertSreenBlinker());
+            FindObjectOfType<AudioManager>().Play("Alert");
 
         }
     }
@@ -136,6 +137,7 @@ public class GameManager : MonoBehaviour
             if (i == 2)
             {
                 isAlert = true;
+                score++;
             }
 
         }

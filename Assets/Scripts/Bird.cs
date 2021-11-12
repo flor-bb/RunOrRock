@@ -45,7 +45,7 @@ public class Bird : MonoBehaviour
                     spawnPoint = RandomItemSpawnPoint();
                     choosenItem = RandomItemChooser();
                     spawnItem = false;
-
+                    FindObjectOfType<AudioManager>().Play("ItemDrop");
                     break;
 
                 case 2:
@@ -53,7 +53,7 @@ public class Bird : MonoBehaviour
                     spawnPoint = RandomItemSpawnPoint();
                     choosenItem = RandomItemChooser();
                     spawnItem = false;
-
+                    FindObjectOfType<AudioManager>().Play("ItemDrop");
                     break;
 
                 case 3:
@@ -62,7 +62,7 @@ public class Bird : MonoBehaviour
                     spawnPoint = RandomItemSpawnPoint();
                     choosenItem = RandomItemChooser();
                     spawnItem = false;
-
+                    FindObjectOfType<AudioManager>().Play("ItemDrop");
                     break;
 
                 default:

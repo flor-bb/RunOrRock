@@ -12,7 +12,7 @@ public class Rocket : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-      
+        FindObjectOfType<AudioManager>().Play("RocketLaunch");
 
         rb = gameObject.GetComponent<Rigidbody2D>();
 
@@ -66,6 +66,7 @@ public class Rocket : MonoBehaviour
     {
         rb.velocity = Vector3.zero;
         anim.SetTrigger("Explode");
+        FindObjectOfType<AudioManager>().Play("RockExplosion");
         //Wait for 4 seconds
         yield return new WaitForSeconds(0.5f);
         Destroy(other);
