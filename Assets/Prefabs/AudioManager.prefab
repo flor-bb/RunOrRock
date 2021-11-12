@@ -88,7 +88,25 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: ItemDrop
     clip: {fileID: 8300000, guid: 23fbd28e212246c47bb0eb3710475b1a, type: 3}
-    volume: 0.9
+    volume: 0.1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: ItemPickUp
+    clip: {fileID: 8300000, guid: 85df173dd682a8f4a8624ca825550bb7, type: 3}
+    volume: 0.7
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: StartGame
+    clip: {fileID: 8300000, guid: 1958baad39d40d0448f5f4525735cd2c, type: 3}
+    volume: 0.7
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: RestartGame
+    clip: {fileID: 8300000, guid: cfdeb729d6dd185499f257e217b8a60f, type: 3}
+    volume: 0.7
     pitch: 1
     loop: 0
     source: {fileID: 0}

@@ -9,13 +9,15 @@ public class GameManager : MonoBehaviour
     private static GameManager instance;
     [SerializeField] private Button helpButton;
     //TODO Change this later
-    private int helpScore = 1;
-    private int vulcanoScore = 2;
+    private int helpScore = 20;
+    private int vulcanoScore = 23;
     private Image helpButtonImg;
     [SerializeField] private Text helpText;
     private int helpCounter = 0;
     [SerializeField] private GameObject alertScreen;
     private bool isAlert = true;
+
+    private bool launchVolcano;
 
     public static GameManager Instance
     {
@@ -58,9 +60,11 @@ public class GameManager : MonoBehaviour
         {
             isAlert = false;
 
-
+            StartCoroutine(DelayVulcano());
             StartCoroutine(AlertSreenBlinker());
             FindObjectOfType<AudioManager>().Play("Alert");
+
+            vulcanoScore = calculateVulcanoScore(score);
 
         }
     }
@@ -121,6 +125,24 @@ public class GameManager : MonoBehaviour
 
     }
 
+    private int calculateVulcanoScore(int x)
+    {
+
+        int y = Random.Range(40, 55);
+
+        if (score <= 100)
+        {
+            return x += score + y;
+
+        }
+        else
+        {
+            return x += (score / 2) + y;
+        }
+
+    }
+
+
     IEnumerator AlertSreenBlinker()
 
     {
@@ -141,6 +163,28 @@ public class GameManager : MonoBehaviour
             }
 
         }
+
+
+    }
+
+    public void SetLaunchVolcano(bool launchVolcano)
+    {
+        this.launchVolcano = launchVolcano;
+    }
+
+    public bool GetLaunchVolcano()
+    {
+        return this.launchVolcano;
+    }
+
+    IEnumerator DelayVulcano()
+
+    {
+
+
+        yield return new WaitForSeconds(4f);
+        SetLaunchVolcano(true);
+
 
 
     }

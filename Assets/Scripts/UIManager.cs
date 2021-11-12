@@ -57,7 +57,8 @@ public class UIManager : MonoBehaviour
     public void RestartGame()
     {
         SceneManager.LoadScene("Game");
-        if(gameOverScreen!= null)
+        FindObjectOfType<AudioManager>().Play("RestartGame");
+        if (gameOverScreen!= null)
         {
             gameOverScreen.SetActive(false);
         }
@@ -67,19 +68,20 @@ public class UIManager : MonoBehaviour
     public void MainMenu()
     {
         SceneManager.LoadScene("Main_Menu");
-
+        FindObjectOfType<AudioManager>().Play("RestartGame");
     }
 
     public void StartGame()
     {
         SceneManager.LoadScene("Game");
+        FindObjectOfType<AudioManager>().Play("StartGame");
     }
 
     public void QuitGame()
     {
 
-    
-            Application.Quit();
+        FindObjectOfType<AudioManager>().Play("StartGame");
+        Application.Quit();
    
     }
 

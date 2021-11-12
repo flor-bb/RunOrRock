@@ -25,6 +25,8 @@ public class RockSpawnerBig : MonoBehaviour
     private void FixedUpdate()
     {
 
+        WaitforVolcanoLaunch();
+
     }
 
 
@@ -44,12 +46,12 @@ public class RockSpawnerBig : MonoBehaviour
 
         if (GameManager.Instance.score <= 20)
         {
-            x = Random.Range(8, 16);
+            x = Random.Range(4, 14);
 
         }
         else if (GameManager.Instance.score > 20 && GameManager.Instance.score <= 30)
         {
-            x = Random.Range(7, 15);
+            x = Random.Range(7, 13);
         }
         else if (GameManager.Instance.score > 30 && GameManager.Instance.score <= 40)
         {
@@ -79,12 +81,38 @@ public class RockSpawnerBig : MonoBehaviour
         {
             x = Random.Range(2, 6);
         }
+        else if (GameManager.Instance.score > 100 && GameManager.Instance.score <= 200)
+        {
+            x = Random.Range(2, 6);
+        }
+        else if (GameManager.Instance.score > 200 && GameManager.Instance.score <= 300)
+        {
+            x = Random.Range(2, 4);
+        }
         else
         {
-            x = Random.Range(1, 4);
+            x = Random.Range(1, 3);
         }
 
+
         return x;
+    }
+
+    private void WaitforVolcanoLaunch()
+    {
+
+        if (GameManager.Instance.GetLaunchVolcano())
+        {
+            Debug.Log("Big Rock launched");
+            for (int i = 0; i < 4; i++)
+            {
+                Instantiate(rock, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+
+            }
+
+            
+        }
+
     }
 
 

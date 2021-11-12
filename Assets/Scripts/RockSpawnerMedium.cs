@@ -25,7 +25,7 @@ public class RockSpawnerMedium : MonoBehaviour
 
     private void FixedUpdate()
     {
-
+        WaitforVolcanoLaunch();
     }
 
 
@@ -46,7 +46,7 @@ public class RockSpawnerMedium : MonoBehaviour
 
         if (GameManager.Instance.score <= 20)
         {
-            x = Random.Range(8, 16);
+            x = Random.Range(8, 15);
 
         }
         else if (GameManager.Instance.score > 20 && GameManager.Instance.score <= 30)
@@ -55,7 +55,7 @@ public class RockSpawnerMedium : MonoBehaviour
         }
         else if (GameManager.Instance.score > 30 && GameManager.Instance.score <= 40)
         {
-            x = Random.Range(6, 14);
+            x = Random.Range(3, 14);
         }
         else if (GameManager.Instance.score > 40 && GameManager.Instance.score <= 50)
         {
@@ -81,12 +81,37 @@ public class RockSpawnerMedium : MonoBehaviour
         {
             x = Random.Range(2, 6);
         }
+        else if (GameManager.Instance.score > 100 && GameManager.Instance.score <= 200)
+        {
+            x = Random.Range(2, 6);
+        }
+        else if (GameManager.Instance.score > 200 && GameManager.Instance.score <= 300)
+        {
+            x = Random.Range(2, 4);
+        }
         else
         {
-            x = Random.Range(1, 4);
+            x = Random.Range(1, 3);
         }
 
         return x;
+    }
+
+    private void WaitforVolcanoLaunch()
+    {
+
+        if (GameManager.Instance.GetLaunchVolcano())
+        {
+            Debug.Log("Medium Rock launched");
+            for (int i = 0; i < 2; i++)
+            {
+                Instantiate(rock, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+
+            }
+
+            GameManager.Instance.SetLaunchVolcano(false);
+        }
+
     }
 
 }

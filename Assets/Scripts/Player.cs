@@ -91,6 +91,7 @@ public class Player : MonoBehaviour
         if (collision.gameObject.tag == "HealthItem")
         {
             health += 2;
+            FindObjectOfType<AudioManager>().Play("ItemPickUp");
             Destroy(collision.gameObject);
         }
 
@@ -98,12 +99,14 @@ public class Player : MonoBehaviour
         {
             Instantiate(canon, new Vector3(09.31f, -0.68f, transform.position.z), Quaternion.identity);
             Instantiate(elefant, new Vector3(11.1f, -0.63f, transform.position.z), Quaternion.identity);
+            FindObjectOfType<AudioManager>().Play("ItemPickUp");
             Destroy(collision.gameObject);
         }
 
         if (collision.gameObject.tag == "ShieldItem")
         {
             Instantiate(shield, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+            FindObjectOfType<AudioManager>().Play("ItemPickUp");
             Destroy(collision.gameObject);
         }
 
