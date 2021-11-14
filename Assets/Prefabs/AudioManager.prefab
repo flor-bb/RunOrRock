@@ -76,7 +76,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: AirSupport
     clip: {fileID: 8300000, guid: 1d5ed84d7463bb14aa5a5501bf06056a, type: 3}
-    volume: 0.9
+    volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
@@ -88,7 +88,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: ItemDrop
     clip: {fileID: 8300000, guid: 23fbd28e212246c47bb0eb3710475b1a, type: 3}
-    volume: 0.1
+    volume: 0.4
     pitch: 1
     loop: 0
     source: {fileID: 0}
@@ -106,6 +106,12 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: RestartGame
     clip: {fileID: 8300000, guid: cfdeb729d6dd185499f257e217b8a60f, type: 3}
+    volume: 0.7
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: GameOver
+    clip: {fileID: 8300000, guid: ba6c4f01e34a7a54bbc9fb3c5976e7c9, type: 3}
     volume: 0.7
     pitch: 1
     loop: 0

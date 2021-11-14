@@ -1,0 +1,158 @@
+-- Merging decision tree log ---
+manifest
+ADDED from D:\UnityProjects\PhantusRunus\export\launcher\src\main\AndroidManifest.xml:3:1-6:12
+INJECTED from D:\UnityProjects\PhantusRunus\export\launcher\src\main\AndroidManifest.xml:3:1-6:12
+INJECTED from D:\UnityProjects\PhantusRunus\export\launcher\src\main\AndroidManifest.xml:3:1-6:12
+INJECTED from D:\UnityProjects\PhantusRunus\export\launcher\src\main\AndroidManifest.xml:3:1-6:12
+MERGED from [:unityLibrary] D:\UnityProjects\PhantusRunus\export\unityLibrary\build\intermediates\merged_manifest\debug\AndroidManifest.xml:3:1-64:12
+INJECTED from D:\UnityProjects\PhantusRunus\export\launcher\src\main\AndroidManifest.xml:3:1-6:12
+INJECTED from D:\UnityProjects\PhantusRunus\export\launcher\src\main\AndroidManifest.xml:3:1-6:12
+INJECTED from D:\UnityProjects\PhantusRunus\export\launcher\src\main\AndroidManifest.xml:3:1-6:12
+	package
+		ADDED from D:\UnityProjects\PhantusRunus\export\launcher\src\main\AndroidManifest.xml:3:70-108
+		INJECTED from D:\UnityProjects\PhantusRunus\export\launcher\src\main\AndroidManifest.xml
+		INJECTED from D:\UnityProjects\PhantusRunus\export\launcher\src\main\AndroidManifest.xml
+	android:versionName
+		INJECTED from D:\UnityProjects\PhantusRunus\export\launcher\src\main\AndroidManifest.xml
+		ADDED from D:\UnityProjects\PhantusRunus\export\launcher\src\main\AndroidManifest.xml:3:1-6:12
+		INJECTED from D:\UnityProjects\PhantusRunus\export\launcher\src\main\AndroidManifest.xml
+	xmlns:tools
+		ADDED from D:\UnityProjects\PhantusRunus\export\launcher\src\main\AndroidManifest.xml:3:109-155
+	android:versionCode
+		INJECTED from D:\UnityProjects\PhantusRunus\export\launcher\src\main\AndroidManifest.xml
+		ADDED from D:\UnityProjects\PhantusRunus\export\launcher\src\main\AndroidManifest.xml:3:1-6:12
+		INJECTED from D:\UnityProjects\PhantusRunus\export\launcher\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from D:\UnityProjects\PhantusRunus\export\launcher\src\main\AndroidManifest.xml:3:11-69
+	android:installLocation
+		ADDED from D:\UnityProjects\PhantusRunus\export\launcher\src\main\AndroidManifest.xml:3:156-196
+supports-screens
+ADDED from D:\UnityProjects\PhantusRunus\export\launcher\src\main\AndroidManifest.xml:4:3-163
+	android:largeScreens
+		ADDED from D:\UnityProjects\PhantusRunus\export\launcher\src\main\AndroidManifest.xml:4:78-105
+	android:smallScreens
+		ADDED from D:\UnityProjects\PhantusRunus\export\launcher\src\main\AndroidManifest.xml:4:21-48
+	android:normalScreens
+		ADDED from D:\UnityProjects\PhantusRunus\export\launcher\src\main\AndroidManifest.xml:4:49-77
+	android:xlargeScreens
+		ADDED from D:\UnityProjects\PhantusRunus\export\launcher\src\main\AndroidManifest.xml:4:106-134
+	android:anyDensity
+		ADDED from D:\UnityProjects\PhantusRunus\export\launcher\src\main\AndroidManifest.xml:4:135-160
+application
+ADDED from D:\UnityProjects\PhantusRunus\export\launcher\src\main\AndroidManifest.xml:5:3-83
+MERGED from [:unityLibrary] D:\UnityProjects\PhantusRunus\export\unityLibrary\build\intermediates\merged_manifest\debug\AndroidManifest.xml:28:5-62:19
+MERGED from [:unityLibrary] D:\UnityProjects\PhantusRunus\export\unityLibrary\build\intermediates\merged_manifest\debug\AndroidManifest.xml:28:5-62:19
+	android:label
+		ADDED from D:\UnityProjects\PhantusRunus\export\launcher\src\main\AndroidManifest.xml:5:16-48
+	android:icon
+		ADDED from D:\UnityProjects\PhantusRunus\export\launcher\src\main\AndroidManifest.xml:5:49-80
+uses-sdk
+INJECTED from D:\UnityProjects\PhantusRunus\export\launcher\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from D:\UnityProjects\PhantusRunus\export\launcher\src\main\AndroidManifest.xml
+INJECTED from D:\UnityProjects\PhantusRunus\export\launcher\src\main\AndroidManifest.xml
+MERGED from [:unityLibrary] D:\UnityProjects\PhantusRunus\export\unityLibrary\build\intermediates\merged_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:unityLibrary] D:\UnityProjects\PhantusRunus\export\unityLibrary\build\intermediates\merged_manifest\debug\AndroidManifest.xml:7:5-9:41
+INJECTED from D:\UnityProjects\PhantusRunus\export\launcher\src\main\AndroidManifest.xml
+INJECTED from D:\UnityProjects\PhantusRunus\export\launcher\src\main\AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from D:\UnityProjects\PhantusRunus\export\launcher\src\main\AndroidManifest.xml
+		ADDED from D:\UnityProjects\PhantusRunus\export\launcher\src\main\AndroidManifest.xml
+		INJECTED from D:\UnityProjects\PhantusRunus\export\launcher\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from D:\UnityProjects\PhantusRunus\export\launcher\src\main\AndroidManifest.xml
+		ADDED from D:\UnityProjects\PhantusRunus\export\launcher\src\main\AndroidManifest.xml
+		INJECTED from D:\UnityProjects\PhantusRunus\export\launcher\src\main\AndroidManifest.xml
+uses-feature#0x00030000
+ADDED from [:unityLibrary] D:\UnityProjects\PhantusRunus\export\unityLibrary\build\intermediates\merged_manifest\debug\AndroidManifest.xml:11:5-54
+	android:glEsVersion
+		ADDED from [:unityLibrary] D:\UnityProjects\PhantusRunus\export\unityLibrary\build\intermediates\merged_manifest\debug\AndroidManifest.xml:11:19-51
+uses-feature#android.hardware.vulkan.version
+ADDED from [:unityLibrary] D:\UnityProjects\PhantusRunus\export\unityLibrary\build\intermediates\merged_manifest\debug\AndroidManifest.xml:12:5-14:36
+	android:required
+		ADDED from [:unityLibrary] D:\UnityProjects\PhantusRunus\export\unityLibrary\build\intermediates\merged_manifest\debug\AndroidManifest.xml:14:9-33
+	android:name
+		ADDED from [:unityLibrary] D:\UnityProjects\PhantusRunus\export\unityLibrary\build\intermediates\merged_manifest\debug\AndroidManifest.xml:13:9-55
+uses-feature#android.hardware.sensor.accelerometer
+ADDED from [:unityLibrary] D:\UnityProjects\PhantusRunus\export\unityLibrary\build\intermediates\merged_manifest\debug\AndroidManifest.xml:15:5-17:36
+	android:required
+		ADDED from [:unityLibrary] D:\UnityProjects\PhantusRunus\export\unityLibrary\build\intermediates\merged_manifest\debug\AndroidManifest.xml:17:9-33
+	android:name
+		ADDED from [:unityLibrary] D:\UnityProjects\PhantusRunus\export\unityLibrary\build\intermediates\merged_manifest\debug\AndroidManifest.xml:16:9-61
+uses-feature#android.hardware.touchscreen
+ADDED from [:unityLibrary] D:\UnityProjects\PhantusRunus\export\unityLibrary\build\intermediates\merged_manifest\debug\AndroidManifest.xml:18:5-20:36
+	android:required
+		ADDED from [:unityLibrary] D:\UnityProjects\PhantusRunus\export\unityLibrary\build\intermediates\merged_manifest\debug\AndroidManifest.xml:20:9-33
+	android:name
+		ADDED from [:unityLibrary] D:\UnityProjects\PhantusRunus\export\unityLibrary\build\intermediates\merged_manifest\debug\AndroidManifest.xml:19:9-52
+uses-feature#android.hardware.touchscreen.multitouch
+ADDED from [:unityLibrary] D:\UnityProjects\PhantusRunus\export\unityLibrary\build\intermediates\merged_manifest\debug\AndroidManifest.xml:21:5-23:36
+	android:required
+		ADDED from [:unityLibrary] D:\UnityProjects\PhantusRunus\export\unityLibrary\build\intermediates\merged_manifest\debug\AndroidManifest.xml:23:9-33
+	android:name
+		ADDED from [:unityLibrary] D:\UnityProjects\PhantusRunus\export\unityLibrary\build\intermediates\merged_manifest\debug\AndroidManifest.xml:22:9-63
+uses-feature#android.hardware.touchscreen.multitouch.distinct
+ADDED from [:unityLibrary] D:\UnityProjects\PhantusRunus\export\unityLibrary\build\intermediates\merged_manifest\debug\AndroidManifest.xml:24:5-26:36
+	android:required
+		ADDED from [:unityLibrary] D:\UnityProjects\PhantusRunus\export\unityLibrary\build\intermediates\merged_manifest\debug\AndroidManifest.xml:26:9-33
+	android:name
+		ADDED from [:unityLibrary] D:\UnityProjects\PhantusRunus\export\unityLibrary\build\intermediates\merged_manifest\debug\AndroidManifest.xml:25:9-72
+activity#com.unity3d.player.UnityPlayerActivity
+ADDED from [:unityLibrary] D:\UnityProjects\PhantusRunus\export\unityLibrary\build\intermediates\merged_manifest\debug\AndroidManifest.xml:29:9-48:20
+	android:screenOrientation
+		ADDED from [:unityLibrary] D:\UnityProjects\PhantusRunus\export\unityLibrary\build\intermediates\merged_manifest\debug\AndroidManifest.xml:34:13-56
+	android:launchMode
+		ADDED from [:unityLibrary] D:\UnityProjects\PhantusRunus\export\unityLibrary\build\intermediates\merged_manifest\debug\AndroidManifest.xml:33:13-44
+	android:hardwareAccelerated
+		ADDED from [:unityLibrary] D:\UnityProjects\PhantusRunus\export\unityLibrary\build\intermediates\merged_manifest\debug\AndroidManifest.xml:32:13-48
+	android:configChanges
+		ADDED from [:unityLibrary] D:\UnityProjects\PhantusRunus\export\unityLibrary\build\intermediates\merged_manifest\debug\AndroidManifest.xml:31:13-194
+	android:theme
+		ADDED from [:unityLibrary] D:\UnityProjects\PhantusRunus\export\unityLibrary\build\intermediates\merged_manifest\debug\AndroidManifest.xml:35:13-54
+	android:name
+		ADDED from [:unityLibrary] D:\UnityProjects\PhantusRunus\export\unityLibrary\build\intermediates\merged_manifest\debug\AndroidManifest.xml:30:13-66
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from [:unityLibrary] D:\UnityProjects\PhantusRunus\export\unityLibrary\build\intermediates\merged_manifest\debug\AndroidManifest.xml:36:13-40:29
+action#android.intent.action.MAIN
+ADDED from [:unityLibrary] D:\UnityProjects\PhantusRunus\export\unityLibrary\build\intermediates\merged_manifest\debug\AndroidManifest.xml:37:17-69
+	android:name
+		ADDED from [:unityLibrary] D:\UnityProjects\PhantusRunus\export\unityLibrary\build\intermediates\merged_manifest\debug\AndroidManifest.xml:37:25-66
+category#android.intent.category.LAUNCHER
+ADDED from [:unityLibrary] D:\UnityProjects\PhantusRunus\export\unityLibrary\build\intermediates\merged_manifest\debug\AndroidManifest.xml:39:17-77
+	android:name
+		ADDED from [:unityLibrary] D:\UnityProjects\PhantusRunus\export\unityLibrary\build\intermediates\merged_manifest\debug\AndroidManifest.xml:39:27-74
+meta-data#unityplayer.UnityActivity
+ADDED from [:unityLibrary] D:\UnityProjects\PhantusRunus\export\unityLibrary\build\intermediates\merged_manifest\debug\AndroidManifest.xml:42:13-44:40
+	android:value
+		ADDED from [:unityLibrary] D:\UnityProjects\PhantusRunus\export\unityLibrary\build\intermediates\merged_manifest\debug\AndroidManifest.xml:44:17-37
+	android:name
+		ADDED from [:unityLibrary] D:\UnityProjects\PhantusRunus\export\unityLibrary\build\intermediates\merged_manifest\debug\AndroidManifest.xml:43:17-57
+meta-data#android.notch_support
+ADDED from [:unityLibrary] D:\UnityProjects\PhantusRunus\export\unityLibrary\build\intermediates\merged_manifest\debug\AndroidManifest.xml:45:13-47:40
+	android:value
+		ADDED from [:unityLibrary] D:\UnityProjects\PhantusRunus\export\unityLibrary\build\intermediates\merged_manifest\debug\AndroidManifest.xml:47:17-37
+	android:name
+		ADDED from [:unityLibrary] D:\UnityProjects\PhantusRunus\export\unityLibrary\build\intermediates\merged_manifest\debug\AndroidManifest.xml:46:17-53
+meta-data#unity.splash-mode
+ADDED from [:unityLibrary] D:\UnityProjects\PhantusRunus\export\unityLibrary\build\intermediates\merged_manifest\debug\AndroidManifest.xml:50:9-52:33
+	android:value
+		ADDED from [:unityLibrary] D:\UnityProjects\PhantusRunus\export\unityLibrary\build\intermediates\merged_manifest\debug\AndroidManifest.xml:52:13-30
+	android:name
+		ADDED from [:unityLibrary] D:\UnityProjects\PhantusRunus\export\unityLibrary\build\intermediates\merged_manifest\debug\AndroidManifest.xml:51:13-45
+meta-data#unity.splash-enable
+ADDED from [:unityLibrary] D:\UnityProjects\PhantusRunus\export\unityLibrary\build\intermediates\merged_manifest\debug\AndroidManifest.xml:53:9-55:36
+	android:value
+		ADDED from [:unityLibrary] D:\UnityProjects\PhantusRunus\export\unityLibrary\build\intermediates\merged_manifest\debug\AndroidManifest.xml:55:13-33
+	android:name
+		ADDED from [:unityLibrary] D:\UnityProjects\PhantusRunus\export\unityLibrary\build\intermediates\merged_manifest\debug\AndroidManifest.xml:54:13-47
+meta-data#notch.config
+ADDED from [:unityLibrary] D:\UnityProjects\PhantusRunus\export\unityLibrary\build\intermediates\merged_manifest\debug\AndroidManifest.xml:56:9-58:50
+	android:value
+		ADDED from [:unityLibrary] D:\UnityProjects\PhantusRunus\export\unityLibrary\build\intermediates\merged_manifest\debug\AndroidManifest.xml:58:13-47
+	android:name
+		ADDED from [:unityLibrary] D:\UnityProjects\PhantusRunus\export\unityLibrary\build\intermediates\merged_manifest\debug\AndroidManifest.xml:57:13-40
+meta-data#unity.build-id
+ADDED from [:unityLibrary] D:\UnityProjects\PhantusRunus\export\unityLibrary\build\intermediates\merged_manifest\debug\AndroidManifest.xml:59:9-61:68
+	android:value
+		ADDED from [:unityLibrary] D:\UnityProjects\PhantusRunus\export\unityLibrary\build\intermediates\merged_manifest\debug\AndroidManifest.xml:61:13-65
+	android:name
+		ADDED from [:unityLibrary] D:\UnityProjects\PhantusRunus\export\unityLibrary\build\intermediates\merged_manifest\debug\AndroidManifest.xml:60:13-42

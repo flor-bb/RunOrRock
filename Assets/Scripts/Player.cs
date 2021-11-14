@@ -82,9 +82,11 @@ public class Player : MonoBehaviour
             health--;
             if(health == 0)
             {
+                FindObjectOfType<AudioManager>().Play("GameOver");
                 Destroy(gameObject);
                 gameOverScreen.SetActive(true);
                 scoreBarrier.SetActive(false);
+
             }
         }
 
@@ -126,11 +128,10 @@ public class Player : MonoBehaviour
         if (health <= 0)
         {
 
-
-
+        
             StartCoroutine(waitForMainMenu());
 
-            
+
 
         }
        

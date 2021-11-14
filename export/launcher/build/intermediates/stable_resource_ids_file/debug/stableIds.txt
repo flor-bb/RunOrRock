@@ -1,0 +1,8 @@
+com.DefaultCompany.RunOrRock:style/UnityThemeSelector.Translucent = 0x7f040002
+com.DefaultCompany.RunOrRock:string/game_view_content_description = 0x7f030001
+com.DefaultCompany.RunOrRock:string/app_name = 0x7f030000
+com.DefaultCompany.RunOrRock:mipmap/app_icon_round = 0x7f020001
+com.DefaultCompany.RunOrRock:style/UnityThemeSelector = 0x7f040001
+com.DefaultCompany.RunOrRock:mipmap/app_icon = 0x7f020000
+com.DefaultCompany.RunOrRock:style/BaseUnityTheme = 0x7f040000
+com.DefaultCompany.RunOrRock:id/unitySurfaceView = 0x7f010000
