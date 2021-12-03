@@ -7,6 +7,7 @@ public class AttackBird : MonoBehaviour
 
     private Rigidbody2D rb;
     [SerializeField] private float speed;
+    [SerializeField] private GameObject coin;
 
 
     void Start()
@@ -52,6 +53,9 @@ public class AttackBird : MonoBehaviour
         rb.velocity = Vector3.zero;
         anim.SetTrigger("Explode");
         FindObjectOfType<AudioManager>().Play("RockExplosion");
+        Instantiate(coin, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+        Instantiate(coin, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+        Instantiate(coin, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
         //Wait for 4 seconds
         yield return new WaitForSeconds(0.5f);
         Destroy(other);

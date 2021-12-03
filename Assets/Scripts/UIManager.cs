@@ -8,7 +8,9 @@ public class UIManager : MonoBehaviour
 {
 
     public Text scoreText;
-      public Text  livesText;
+    public Text livesText;
+    public Text bestText;
+    public Text goldText;
     public GameObject gameOverScreen;
 
     //Singleton class
@@ -41,16 +43,24 @@ public class UIManager : MonoBehaviour
     private void UpdateTexts()
     {
 
-        if(scoreText!= null)
+        if (scoreText != null)
         {
             scoreText.text = "Score: " + GameManager.Instance.score;
 
         }
-        if(livesText!= null)
+        if (livesText != null)
         {
             livesText.text = "Lives: " + GameManager.Instance.player.health;
         }
-        
+        if (bestText != null)
+        {
+            bestText.text = "Best: " + GameManager.Instance.bestScore;
+        }
+        if(goldText != null)
+        {
+            goldText.text = "Gold: " + GameManager.Instance.goldCount;
+        }
+
 
     }
 
@@ -58,7 +68,7 @@ public class UIManager : MonoBehaviour
     {
         SceneManager.LoadScene("Game");
         FindObjectOfType<AudioManager>().Play("RestartGame");
-        if (gameOverScreen!= null)
+        if (gameOverScreen != null)
         {
             gameOverScreen.SetActive(false);
         }
@@ -82,7 +92,15 @@ public class UIManager : MonoBehaviour
 
         FindObjectOfType<AudioManager>().Play("StartGame");
         Application.Quit();
-   
+
+    }
+
+    public void Help()
+    {
+
+        FindObjectOfType<AudioManager>().Play("RestartGame");
+        SceneManager.LoadScene("Help");
+
     }
 
 }

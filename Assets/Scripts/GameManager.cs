@@ -33,10 +33,18 @@ public class GameManager : MonoBehaviour
 
     public int score { get; set; }
 
+    public int bestScore { get; set; }
+    public int goldCount { get; set; }
+
     public Player player { get; private set; }
 
     private void Awake()
     {
+
+        bestScore = PlayerPrefs.GetInt("BestScore");
+        goldCount = PlayerPrefs.GetInt("GoldCount");
+
+
         instance = this;
         score = 0;
         helpButton.enabled = false;
@@ -51,6 +59,7 @@ public class GameManager : MonoBehaviour
     {
         UpdateAirSupport();
         UpdateVulcanoEruption();
+        TrackBestScore();
     }
 
     private void UpdateVulcanoEruption()
@@ -64,12 +73,21 @@ public class GameManager : MonoBehaviour
             StartCoroutine(AlertSreenBlinker());
             FindObjectOfType<AudioManager>().Play("Alert");
 
-            vulcanoScore = calculateVulcanoScore(score);
+            vulcanoScore = CalculateVulcanoScore(score);
 
         }
     }
 
+    private void TrackBestScore()
+    {
 
+        if (score >= bestScore)
+        {
+            bestScore = score;
+            PlayerPrefs.SetInt("BestScore", bestScore);
+        }
+
+    }
 
 
     private void UpdateAirSupport()
@@ -125,7 +143,7 @@ public class GameManager : MonoBehaviour
 
     }
 
-    private int calculateVulcanoScore(int x)
+    private int CalculateVulcanoScore(int x)
     {
 
         int y = Random.Range(40, 55);

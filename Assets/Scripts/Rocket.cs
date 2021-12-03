@@ -7,6 +7,7 @@ public class Rocket : MonoBehaviour
 
     private Rigidbody2D rb;
     private float speedX, randomSpeedY, randomRotateSpeed;
+    [SerializeField] private GameObject coin;
 
 
     // Start is called before the first frame update
@@ -21,7 +22,7 @@ public class Rocket : MonoBehaviour
 
         rb.gravityScale = 0;
         rb.mass = 0;
-      
+
 
     }
 
@@ -30,7 +31,7 @@ public class Rocket : MonoBehaviour
         if (collision.tag == "Rock")
         {
 
-         Animator otherAnim=    collision.GetComponent<Animator>();
+            Animator otherAnim = collision.GetComponent<Animator>();
             Rigidbody2D otherRB = collision.GetComponent<Rigidbody2D>();
             StartCoroutine(waitForExplosion(otherAnim, collision.gameObject, otherRB));
             GameManager.Instance.score++;
@@ -39,9 +40,6 @@ public class Rocket : MonoBehaviour
 
         if (collision.tag == "Score_Barrier")
         {
-
-    
-
             Destroy(gameObject);
         }
     }
@@ -67,7 +65,10 @@ public class Rocket : MonoBehaviour
         rb.velocity = Vector3.zero;
         anim.SetTrigger("Explode");
         FindObjectOfType<AudioManager>().Play("RockExplosion");
-        //Wait for 4 seconds
+        Instantiate(coin, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+        Instantiate(coin, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+        Instantiate(coin, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+        //Wait for 0.5 seconds
         yield return new WaitForSeconds(0.5f);
         Destroy(other);
 
