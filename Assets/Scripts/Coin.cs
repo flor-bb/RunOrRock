@@ -51,6 +51,7 @@ public class Coin : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             anim.SetTrigger("Collected");
+            FindObjectOfType<AudioManager>().Play("Coin");
             isCollected = true;
         }
     }

@@ -116,3 +116,9 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: Coin
+    clip: {fileID: 8300000, guid: c60b4a914ce22344fb2ab3d8b18d4750, type: 3}
+    volume: 0.7
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
