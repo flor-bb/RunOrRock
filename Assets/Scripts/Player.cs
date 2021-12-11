@@ -35,7 +35,9 @@ public class Player : MonoBehaviour
 
         health = 3;
         uiManager = UIManager.Instance;
-      
+
+
+
     }
 
     void Update()

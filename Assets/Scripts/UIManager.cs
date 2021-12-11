@@ -87,6 +87,12 @@ public class UIManager : MonoBehaviour
         FindObjectOfType<AudioManager>().Play("StartGame");
     }
 
+    public void Shop()
+    {
+        SceneManager.LoadScene("Shop");
+        FindObjectOfType<AudioManager>().Play("RestartGame");
+    }
+
     public void QuitGame()
     {
 
