@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
 
     private Rigidbody2D _rigid;
     [SerializeField] private float _speed = 5.0f;
-    [SerializeField] private LayerMask _groundLayer = 1<<8;
+    [SerializeField] private LayerMask _groundLayer = 1 << 8;
     private SpriteRenderer _playerSprite;
     protected Animator anim;
     private UIManager uiManager;
@@ -20,6 +20,9 @@ public class Player : MonoBehaviour
     [SerializeField] private GameObject canon;
     [SerializeField] private GameObject elefant;
     [SerializeField] private GameObject shield;
+    [SerializeField] private GameObject lama;
+    [SerializeField] private GameObject giraffe;
+
 
     public int health;
 
@@ -27,10 +30,31 @@ public class Player : MonoBehaviour
 
     void Start()
     {
+
+        if (PlayerPrefs.GetInt("selectedPlayer") == 0)
+        {
+            lama.SetActive(true);
+            giraffe.SetActive(false);
+            transform.localScale = new Vector3(1, 1, 0);
+        }
+        else if (PlayerPrefs.GetInt("selectedPlayer") == 1)
+        {
+            lama.SetActive(false);
+            giraffe.SetActive(true);
+            transform.localScale = new Vector3(1.3f, 1.3f, 0);
+            _speed = 6f;
+        }
+        else
+        {
+            lama.SetActive(true);
+            giraffe.SetActive(false);
+            transform.localScale = new Vector3(1, 1, 0);
+        }
+
         scoreBarrier.SetActive(true);
         anim = GetComponentInChildren<Animator>();
         _rigid = GetComponent<Rigidbody2D>();
- 
+
         _playerSprite = GetComponentInChildren<SpriteRenderer>();
 
         health = 3;
@@ -50,7 +74,7 @@ public class Player : MonoBehaviour
     private void Movement()
     {
 
-    
+
         float move = CrossPlatformInputManager.GetAxis("Horizontal");  //Input.GetAxisRaw("Horizontal");
 
         Flip(move);
@@ -73,7 +97,7 @@ public class Player : MonoBehaviour
         {
             //flips the player
             _playerSprite.flipX = true;
-          
+
         }
     }
 
@@ -82,7 +106,7 @@ public class Player : MonoBehaviour
         if (collision.gameObject.tag == "Rock")
         {
             health--;
-            if(health == 0)
+            if (health == 0)
             {
                 FindObjectOfType<AudioManager>().Play("GameOver");
                 Destroy(gameObject);
@@ -125,24 +149,24 @@ public class Player : MonoBehaviour
             return;
         }
         health--;
- 
+
 
         if (health <= 0)
         {
 
-        
+
             StartCoroutine(waitForMainMenu());
 
 
 
         }
-       
+
     }
 
     public void AddGems(int amount)
     {
         points += amount;
- 
+
     }
 
 

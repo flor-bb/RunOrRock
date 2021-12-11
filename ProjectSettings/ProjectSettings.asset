@@ -124,7 +124,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleVersion: 1.2
+  bundleVersion: 1.3
   preloadedAssets: []
   metroInputSource: 0
   wsaTransparentSwapchain: 0
@@ -169,7 +169,7 @@ PlayerSettings:
   androidMaxAspectRatio: 2.1
   applicationIdentifier: {}
   buildNumber: {}
-  AndroidBundleVersionCode: 4
+  AndroidBundleVersionCode: 5
   AndroidMinSdkVersion: 19
   AndroidTargetSdkVersion: 30
   AndroidPreferredInstallLocation: 1
@@ -247,7 +247,7 @@ PlayerSettings:
   AndroidTargetArchitectures: 3
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: C:/Users/flori/OneDrive/Studium/Programmierung/RunOrRock/rock_or_run_keystore.keystore
+  AndroidKeystoreName: C:/Users/Florian Bruderer/OneDrive/Studium/Programmierung/RunOrRock/rock_or_run_keystore.keystore
   AndroidKeyaliasName: runorrock
   AndroidBuildApkPerCpuArchitecture: 0
   AndroidTVCompatibility: 0

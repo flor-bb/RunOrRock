@@ -17,6 +17,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject alertScreen;
     private bool isAlert = true;
 
+    private int selectedPlayer;
+
     private bool launchVolcano;
 
     public static GameManager Instance
@@ -40,18 +42,24 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-
+       // PlayerPrefs.DeleteAll();
         bestScore = PlayerPrefs.GetInt("BestScore");
         goldCount = PlayerPrefs.GetInt("GoldCount");
 
 
         instance = this;
         score = 0;
-        helpButton.enabled = false;
-        helpButtonImg = helpButton.GetComponent<Image>();
-        helpText.enabled = false;
-        helpButtonImg.enabled = false;
-        player = GameObject.FindWithTag("Player").GetComponent<Player>();
+        if (helpButton != null)
+        {
+
+
+            helpButton.enabled = false;
+            helpButtonImg = helpButton.GetComponent<Image>();
+            helpText.enabled = false;
+            helpButtonImg.enabled = false;
+            player = GameObject.FindWithTag("Player").GetComponent<Player>();
+        }
+
 
     }
 
@@ -95,22 +103,30 @@ public class GameManager : MonoBehaviour
         if (score == helpScore)
         {
             helpCounter++;
-            helpButton.enabled = true;
-            helpText.enabled = true;
-            helpButtonImg.enabled = true;
-            helpText.text = helpCounter + "x";
-
-            helpScore = calculateHelpScore(score);
+            if (helpButton != null)
+            {
+                helpButton.enabled = true;
+                helpText.enabled = true;
+                helpButtonImg.enabled = true;
+                helpText.text = helpCounter + "x";
+                helpScore = calculateHelpScore(score);
+            }
         }
 
         if (helpCounter <= 0)
         {
-            helpButton.enabled = false;
-            helpText.enabled = false;
-            helpButtonImg.enabled = false;
+            if (helpButton != null)
+            {
+                helpButton.enabled = false;
+                helpText.enabled = false;
+                helpButtonImg.enabled = false;
+            }
+        }
+        if (helpText != null)
+        {
+            helpText.text = helpCounter + "x";
         }
 
-        helpText.text = helpCounter + "x";
     }
 
     public int getHelpCounter()
@@ -166,20 +182,23 @@ public class GameManager : MonoBehaviour
     {
         for (int i = 0; i < 3; i++)
         {
-
-            alertScreen.SetActive(true);
-
-            yield return new WaitForSeconds(1f);
-
-            alertScreen.SetActive(false);
-
-            yield return new WaitForSeconds(1f);
-            if (i == 2)
+            if (alertScreen != null)
             {
-                isAlert = true;
-                score++;
-            }
 
+
+                alertScreen.SetActive(true);
+
+                yield return new WaitForSeconds(1f);
+
+                alertScreen.SetActive(false);
+
+                yield return new WaitForSeconds(1f);
+                if (i == 2)
+                {
+                    isAlert = true;
+                    score++;
+                }
+            }
         }
 
 
