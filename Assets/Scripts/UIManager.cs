@@ -109,4 +109,16 @@ public class UIManager : MonoBehaviour
 
     }
 
+    public void CharacterShop()
+    {
+        SceneManager.LoadScene("Shop_Characters");
+        FindObjectOfType<AudioManager>().Play("RestartGame");
+    }
+
+    public void HatShop()
+    {
+        SceneManager.LoadScene("Shop_Hats");
+        FindObjectOfType<AudioManager>().Play("RestartGame");
+    }
+
 }

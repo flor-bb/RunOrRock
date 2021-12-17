@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Shop : MonoBehaviour
+public class CharacterShop : MonoBehaviour
 {
 
     [SerializeField] private GameObject giraffeLocked;
@@ -13,7 +13,7 @@ public class Shop : MonoBehaviour
     [SerializeField] private GameObject lamaBought;
     [SerializeField] private Text goldCount;
     [SerializeField] private Text giraffeCost;
-    private int giraffePrice = 5000;
+    private int giraffePrice = 1;
 
     private bool isGiraffeUnlocked = false;
     private bool isGiraffeSelected = false;
@@ -69,12 +69,6 @@ public class Shop : MonoBehaviour
             isLamaSelected = true;
         }
 
-
-        Debug.Log("Giraffe Selected? " + isGiraffeSelected);
-        Debug.Log("Giraffe Bought? " + isGiraffeUnlocked);
-        Debug.Log("Lama Selected? " + (PlayerPrefs.GetInt("isLamaSelected") != 0));
-
-
         if (isLamaSelected)
         {
             giraffeLocked.SetActive(true);
@@ -82,7 +76,7 @@ public class Shop : MonoBehaviour
             giraffeChecked.SetActive(false);
             lamaChecked.SetActive(true);
             lamaBought.SetActive(false);
-            Debug.Log("Lama is Selected");
+
         }
 
 
@@ -93,7 +87,7 @@ public class Shop : MonoBehaviour
             giraffeChecked.SetActive(false);
             lamaChecked.SetActive(true);
             lamaBought.SetActive(false);
-            Debug.Log("Lama is Selected And Giraffe is bought");
+
 
         }
 
@@ -104,7 +98,7 @@ public class Shop : MonoBehaviour
             giraffeChecked.SetActive(true);
             lamaChecked.SetActive(false);
             lamaBought.SetActive(true);
-            Debug.Log("Giraffe is selected");
+
         }
 
 

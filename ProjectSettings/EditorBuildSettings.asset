@@ -11,9 +11,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Main_Menu.unity
     guid: d07858fa4d504934eae97cbce61c893f
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/Game.unity
     guid: 2cda990e2423bbf4892e6590ba056729
@@ -21,6 +18,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Help.unity
     guid: 06d32d8c25a2fc24496beeb639c84dad
   - enabled: 1
-    path: Assets/Scenes/Shop.unity
+    path: Assets/Scenes/Shop_Characters.unity
     guid: e176001a69ed08245ac36862e0a97e00
+  - enabled: 1
+    path: Assets/Scenes/Shop_Hats.unity
+    guid: ce9f383f2d4bd384a849a5b981718cdf
+  - enabled: 1
+    path: Assets/Scenes/Shop.unity
+    guid: f08eef16c30587f4f94adbe761cd5b7f
   m_configObjects: {}

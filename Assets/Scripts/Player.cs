@@ -22,6 +22,8 @@ public class Player : MonoBehaviour
     [SerializeField] private GameObject shield;
     [SerializeField] private GameObject lama;
     [SerializeField] private GameObject giraffe;
+    [SerializeField] private GameObject lamaZylinder, lamaFrog, lamaMagician, lamaSanta;
+    [SerializeField] private GameObject giraffeZylinder, giraffeFrog, giraffeMagician, giraffeSanta;
 
 
     public int health;
@@ -36,6 +38,7 @@ public class Player : MonoBehaviour
             lama.SetActive(true);
             giraffe.SetActive(false);
             transform.localScale = new Vector3(1, 1, 0);
+
         }
         else if (PlayerPrefs.GetInt("selectedPlayer") == 1)
         {
@@ -43,12 +46,15 @@ public class Player : MonoBehaviour
             giraffe.SetActive(true);
             transform.localScale = new Vector3(1.3f, 1.3f, 0);
             _speed = 6f;
+
+
         }
         else
         {
             lama.SetActive(true);
             giraffe.SetActive(false);
             transform.localScale = new Vector3(1, 1, 0);
+
         }
 
         scoreBarrier.SetActive(true);
@@ -86,19 +92,78 @@ public class Player : MonoBehaviour
 
     private void Flip(float move)
     {
+
         if (move > 0)
         {
             //flips the player
-            _playerSprite.flipX = false;
+            if (PlayerPrefs.GetInt("selectedPlayer") == 0)
+            {
+                _playerSprite.flipX = true;
+            }
+            else
+            {
+                transform.rotation = Quaternion.Euler(0, 0, 0);
+            }
+            //reposition the hats
+            //Zylinder
+            lamaZylinder.transform.position = new Vector3(transform.position.x + 0.2f, transform.position.y + 0.95f, transform.position.z);
+            lamaZylinder.transform.eulerAngles = new Vector3(0, 0, 18.1f);
 
+            //Frog
+            lamaFrog.transform.position = new Vector3(transform.position.x + 0.2f, transform.position.y + 0.95f, transform.position.z);
+            lamaFrog.transform.eulerAngles = new Vector3(0, 0, 18.1f);
+            lamaFrog.GetComponent<SpriteRenderer>().flipX = false;
+
+            //Santa
+            lamaSanta.transform.position = new Vector3(transform.position.x + 0.25f, transform.position.y + 0.6f, transform.position.z);
+            lamaSanta.transform.eulerAngles = new Vector3(0, 0, 5f);
+            lamaSanta.GetComponent<SpriteRenderer>().flipX = false;
+
+            //macigian
+            lamaMagician.transform.position = new Vector3(transform.position.x + 0.25f, transform.position.y + 1.05f, transform.position.z);
+            lamaMagician.transform.eulerAngles = new Vector3(0, 0, 15f);
+            lamaMagician.GetComponent<SpriteRenderer>().flipX = true;
 
         }
         else if (move < 0)
         {
             //flips the player
-            _playerSprite.flipX = true;
+            if (PlayerPrefs.GetInt("selectedPlayer") == 0)
+            {
+                _playerSprite.flipX = true;
+            }
+            else
+            {
+                transform.rotation = Quaternion.Euler(0, -180, 0);
+            }
+
+            //reposition the hats
+            //Zylinder
+            lamaZylinder.transform.position = new Vector3(transform.position.x + 0.2f, transform.position.y + 0.95f, transform.position.z);
+            lamaZylinder.transform.eulerAngles = new Vector3(0, 0, 18.1f);
+
+
+            //Frog
+            lamaFrog.transform.position = new Vector3(transform.position.x - 0.1f, transform.position.y + 0.9f, transform.position.z);
+            lamaFrog.transform.eulerAngles = new Vector3(0, 0, -26.405f);
+            lamaFrog.GetComponent<SpriteRenderer>().flipX = true;
+
+
+
+            //Santa
+            lamaSanta.transform.position = new Vector3(transform.position.x - 0.25f, transform.position.y + 0.6f, transform.position.z);
+            lamaSanta.transform.eulerAngles = new Vector3(0, 0, -3f);
+            lamaSanta.GetComponent<SpriteRenderer>().flipX = true;
+
+
+
+            //macigian
+            lamaMagician.transform.position = new Vector3(transform.position.x - 0.25f, transform.position.y + 1.05f, transform.position.z);
+            lamaMagician.transform.eulerAngles = new Vector3(0, 0, -10f);
+            lamaMagician.GetComponent<SpriteRenderer>().flipX = false;
 
         }
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
