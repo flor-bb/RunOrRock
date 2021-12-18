@@ -13,7 +13,7 @@ public class CharacterShop : MonoBehaviour
     [SerializeField] private GameObject lamaBought;
     [SerializeField] private Text goldCount;
     [SerializeField] private Text giraffeCost;
-    private int giraffePrice = 1;
+    private int giraffePrice = 5000;
 
     private bool isGiraffeUnlocked = false;
     private bool isGiraffeSelected = false;
@@ -39,7 +39,7 @@ public class CharacterShop : MonoBehaviour
 
     void Update()
     {
-        CheckGoldCountGiraffe();
+      //  CheckGoldCountGiraffe();
     }
 
     private void SetUpShop()
@@ -130,6 +130,10 @@ public class CharacterShop : MonoBehaviour
             PlayerPrefs.SetInt("GoldCount", GameManager.Instance.goldCount);
             giraffeCost.text = "";
             FindObjectOfType<AudioManager>().Play("Coin");
+        }
+        else
+        {
+            FindObjectOfType<AudioManager>().Play("Denied");
         }
 
     }

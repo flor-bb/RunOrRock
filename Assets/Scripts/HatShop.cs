@@ -25,10 +25,10 @@ public class HatShop : MonoBehaviour
     [SerializeField] private Text magicianCostText;
     [SerializeField] private Text frogCostText;
 
-    private int zylinderPrice = 1;
-    private int santaPrice = 1;
-    private int magicianPrice = 1;
-    private int frogPrice = 1;
+    private int zylinderPrice = 100;
+    private int santaPrice = 500;
+    private int magicianPrice = 1000;
+    private int frogPrice = 5000;
 
     private bool isZylinderBought = false;
     private bool isZylinderChecked = false;
@@ -98,13 +98,20 @@ public class HatShop : MonoBehaviour
     private void SetUpShop()
     {
         goldCount.text = GameManager.Instance.goldCount.ToString();
+        zylinderCostText.text = "Price: " + zylinderPrice.ToString();
+        santaCostText.text = "Price: " + santaPrice.ToString();
+        magicianCostText.text = "Price: " + magicianPrice.ToString();
+        frogCostText.text = "Price: " + frogPrice.ToString();
 
+
+        //Zylinder Button
         if (!isZylinderBought)
         {
             zylinderBought.SetActive(false);
             zylinderChecked.SetActive(false);
             zylinderLocked.SetActive(true);
-        }else if (isZylinderChecked)
+        }
+        else if (isZylinderChecked)
         {
             zylinderBought.SetActive(false);
             zylinderChecked.SetActive(true);
@@ -118,23 +125,72 @@ public class HatShop : MonoBehaviour
             zylinderLocked.SetActive(false);
             zylinderCostText.text = "";
         }
+
+        //santa Button
         if (!isSantaBought)
         {
             santaBought.SetActive(false);
             santaChecked.SetActive(false);
             santaLocked.SetActive(true);
         }
+        else if (isSantaChecked)
+        {
+            santaBought.SetActive(false);
+            santaChecked.SetActive(true);
+            santaLocked.SetActive(false);
+            santaCostText.text = "";
+        }
+        else
+        {
+            santaBought.SetActive(true);
+            santaChecked.SetActive(false);
+            santaLocked.SetActive(false);
+            santaCostText.text = "";
+        }
+
+        //Magician Button
         if (!isMagicianBought)
         {
             magicianBought.SetActive(false);
             magicianChecked.SetActive(false);
             magicianLocked.SetActive(true);
         }
+        else if (isMagicianChecked)
+        {
+            magicianBought.SetActive(false);
+            magicianChecked.SetActive(true);
+            magicianLocked.SetActive(false);
+            magicianCostText.text = "";
+
+        }
+        else
+        {
+            magicianBought.SetActive(true);
+            magicianChecked.SetActive(false);
+            magicianLocked.SetActive(false);
+            magicianCostText.text = "";
+        }
+
+        //Frog Button
         if (!isFrogBought)
         {
             frogBought.SetActive(false);
             frogChecked.SetActive(false);
             frogLocked.SetActive(true);
+        }
+        else if (isFrogChecked)
+        {
+            frogBought.SetActive(false);
+            frogChecked.SetActive(true);
+            frogLocked.SetActive(false);
+            frogCostText.text = "";
+        }
+        else
+        {
+            frogBought.SetActive(true);
+            frogChecked.SetActive(false);
+            frogLocked.SetActive(false);
+            frogCostText.text = "";
         }
 
     }
@@ -153,19 +209,50 @@ public class HatShop : MonoBehaviour
             GameManager.Instance.goldCount -= zylinderPrice;
             PlayerPrefs.SetInt("GoldCount", GameManager.Instance.goldCount);
             goldCount.text = GameManager.Instance.goldCount.ToString();
-  
+            FindObjectOfType<AudioManager>().Play("Coin");
+
+        }
+        else
+        {
+            FindObjectOfType<AudioManager>().Play("Denied");
         }
     }
 
     public void CheckZylinder()
     {
+        if (isZylinderBought)
+        {
+            isZylinderChecked = true;
+            PlayerPrefs.SetInt("isZylinderChecked", (isZylinderChecked ? 1 : 0));
+            zylinderBought.SetActive(false);
+            zylinderChecked.SetActive(true);
+            zylinderLocked.SetActive(false);
+            PlayerPrefs.SetInt("hatSelected", 1);
+            FindObjectOfType<AudioManager>().Play("RestartGame");
+            if (isMagicianChecked)
+            {
+                magicianChecked.SetActive(false);
+                magicianBought.SetActive(true);
+                isMagicianChecked = false;
+                PlayerPrefs.SetInt("isMagicianChecked", (isMagicianChecked ? 1 : 0));
+            }
+            if (isSantaChecked)
+            {
+                santaChecked.SetActive(false);
+                santaBought.SetActive(true);
+                isSantaChecked = false;
+                PlayerPrefs.SetInt("isSantaChecked", (isSantaChecked ? 1 : 0));
+            }
+            if (isFrogChecked)
+            {
+                frogChecked.SetActive(false);
+                frogBought.SetActive(true);
+                isFrogChecked = false;
+                PlayerPrefs.SetInt("isFrogChecked", (isFrogChecked ? 1 : 0));
+            }
 
-        isZylinderChecked = true;
-        PlayerPrefs.SetInt("isZylinderChecked", (isZylinderChecked ? 1 : 0));
-        zylinderBought.SetActive(false);
-        zylinderChecked.SetActive(true);
-        zylinderLocked.SetActive(false);
-        PlayerPrefs.SetInt("hatSelected", 0);
+        }
+
     }
 
     public void UncheckZylinder()
@@ -178,6 +265,237 @@ public class HatShop : MonoBehaviour
         zylinderChecked.SetActive(false);
         zylinderLocked.SetActive(false);
         PlayerPrefs.SetInt("hatSelected", 100);
+        FindObjectOfType<AudioManager>().Play("RestartGame");
     }
+
+    public void BuySanta()
+    {
+
+        if (GameManager.Instance.goldCount >= santaPrice)
+        {
+            isSantaBought = true;
+            PlayerPrefs.SetInt("isSantaBought", (isSantaBought ? 1 : 0));
+            santaBought.SetActive(true);
+            santaLocked.SetActive(false);
+            santaChecked.SetActive(false);
+            santaCostText.text = "";
+            GameManager.Instance.goldCount -= santaPrice;
+            PlayerPrefs.SetInt("GoldCount", GameManager.Instance.goldCount);
+            goldCount.text = GameManager.Instance.goldCount.ToString();
+            FindObjectOfType<AudioManager>().Play("Coin");
+        }
+        else
+        {
+            FindObjectOfType<AudioManager>().Play("Denied");
+        }
+
+    }
+
+    public void CheckSanta()
+    {
+
+        if (isSantaBought)
+        {
+            isSantaChecked = true;
+            PlayerPrefs.SetInt("isSantaChecked", (isSantaChecked ? 1 : 0));
+            santaBought.SetActive(false);
+            santaChecked.SetActive(true);
+            santaLocked.SetActive(false);
+            PlayerPrefs.SetInt("hatSelected", 2);
+            FindObjectOfType<AudioManager>().Play("RestartGame");
+            if (isMagicianChecked)
+            {
+                magicianChecked.SetActive(false);
+                magicianBought.SetActive(true);
+                isMagicianChecked = false;
+                PlayerPrefs.SetInt("isMagicianChecked", (isMagicianChecked ? 1 : 0));
+            }
+            if (isZylinderChecked)
+            {
+                zylinderChecked.SetActive(false);
+                zylinderBought.SetActive(true);
+                isZylinderChecked = false;
+                PlayerPrefs.SetInt("isZylinderChecked", (isZylinderChecked ? 1 : 0));
+            }
+            if (isFrogChecked)
+            {
+                frogChecked.SetActive(false);
+                frogBought.SetActive(true);
+                isFrogChecked = false;
+                PlayerPrefs.SetInt("isFrogChecked", (isFrogChecked ? 1 : 0));
+            }
+
+        }
+
+    }
+
+    public void UncheckSanta()
+    {
+        isSantaChecked = false;
+        PlayerPrefs.SetInt("isSantaChecked", (isSantaChecked ? 1 : 0));
+        isSantaBought = true;
+        PlayerPrefs.SetInt("isSantaBought", (isSantaBought ? 1 : 0));
+        santaBought.SetActive(true);
+        santaChecked.SetActive(false);
+        santaLocked.SetActive(false);
+        PlayerPrefs.SetInt("hatSelected", 100);
+        FindObjectOfType<AudioManager>().Play("RestartGame");
+
+    }
+
+    public void BuyMagician()
+    {
+        if (GameManager.Instance.goldCount >= magicianPrice)
+        {
+            isMagicianBought = true;
+            PlayerPrefs.SetInt("isMagicianBought", (isMagicianBought ? 1 : 0));
+            magicianBought.SetActive(true);
+            magicianLocked.SetActive(false);
+            magicianChecked.SetActive(false);
+            magicianCostText.text = "";
+            GameManager.Instance.goldCount -= magicianPrice;
+            PlayerPrefs.SetInt("GoldCount", GameManager.Instance.goldCount);
+            goldCount.text = GameManager.Instance.goldCount.ToString();
+            FindObjectOfType<AudioManager>().Play("Coin");
+        }
+        else
+        {
+            FindObjectOfType<AudioManager>().Play("Denied");
+        }
+
+    }
+
+    public void CheckMagician()
+    {
+
+        if (isMagicianBought)
+        {
+            isMagicianChecked = true;
+            PlayerPrefs.SetInt("isMagicianChecked", (isMagicianChecked ? 1 : 0));
+            magicianBought.SetActive(false);
+            magicianChecked.SetActive(true);
+            magicianLocked.SetActive(false);
+            PlayerPrefs.SetInt("hatSelected", 3);
+            FindObjectOfType<AudioManager>().Play("RestartGame");
+            if (isSantaChecked)
+            {
+                santaChecked.SetActive(false);
+                santaBought.SetActive(true);
+                isSantaChecked = false;
+                PlayerPrefs.SetInt("isSantaChecked", (isSantaChecked ? 1 : 0));
+            }
+            if (isZylinderChecked)
+            {
+                zylinderChecked.SetActive(false);
+                zylinderBought.SetActive(true);
+                isZylinderChecked = false;
+                PlayerPrefs.SetInt("isZylinderChecked", (isZylinderChecked ? 1 : 0));
+            }
+            if (isFrogChecked)
+            {
+                frogChecked.SetActive(false);
+                frogBought.SetActive(true);
+                isFrogChecked = false;
+                PlayerPrefs.SetInt("isFrogChecked", (isFrogChecked ? 1 : 0));
+            }
+
+        }
+
+    }
+
+    public void UncheckMagician()
+    {
+
+        isMagicianChecked = false;
+        PlayerPrefs.SetInt("isMagicianChecked", (isMagicianChecked ? 1 : 0));
+        isMagicianBought = true;
+        PlayerPrefs.SetInt("isMagicianBought", (isMagicianBought ? 1 : 0));
+        magicianBought.SetActive(true);
+        magicianChecked.SetActive(false);
+        magicianLocked.SetActive(false);
+        PlayerPrefs.SetInt("hatSelected", 100);
+        FindObjectOfType<AudioManager>().Play("RestartGame");
+
+    }
+
+
+    public void BuyFrog()
+    {
+        if (GameManager.Instance.goldCount >= frogPrice)
+        {
+            isFrogBought = true;
+            PlayerPrefs.SetInt("isFrogBought", (isFrogBought ? 1 : 0));
+            frogBought.SetActive(true);
+            frogLocked.SetActive(false);
+            frogChecked.SetActive(false);
+            frogCostText.text = "";
+            GameManager.Instance.goldCount -= frogPrice;
+            PlayerPrefs.SetInt("GoldCount", GameManager.Instance.goldCount);
+            goldCount.text = GameManager.Instance.goldCount.ToString();
+            FindObjectOfType<AudioManager>().Play("Coin");
+        }
+        else
+        {
+            FindObjectOfType<AudioManager>().Play("Denied");
+        }
+
+    }
+
+    public void CheckFrog()
+    {
+
+        if (isFrogBought)
+        {
+            isFrogChecked = true;
+            PlayerPrefs.SetInt("isFrogChecked", (isFrogChecked ? 1 : 0));
+            frogBought.SetActive(false);
+            frogChecked.SetActive(true);
+            frogLocked.SetActive(false);
+            PlayerPrefs.SetInt("hatSelected", 4);
+            FindObjectOfType<AudioManager>().Play("RestartGame");
+            if (isSantaChecked)
+            {
+                santaChecked.SetActive(false);
+                santaBought.SetActive(true);
+                isSantaChecked = false;
+                PlayerPrefs.SetInt("isSantaChecked", (isSantaChecked ? 1 : 0));
+            }
+            if (isZylinderChecked)
+            {
+                zylinderChecked.SetActive(false);
+                zylinderBought.SetActive(true);
+                isZylinderChecked = false;
+                PlayerPrefs.SetInt("isZylinderChecked", (isZylinderChecked ? 1 : 0));
+            }
+            if (isMagicianChecked)
+            {
+                magicianChecked.SetActive(false);
+                magicianBought.SetActive(true);
+                isMagicianChecked = false;
+                PlayerPrefs.SetInt("isMagicianChecked", (isMagicianChecked ? 1 : 0));
+            }
+
+        }
+
+    }
+
+    public void UncheckFrog()
+    {
+
+        isFrogChecked = false;
+        PlayerPrefs.SetInt("isFrogChecked", (isFrogChecked ? 1 : 0));
+        isFrogBought = true;
+        PlayerPrefs.SetInt("isFrogBought", (isFrogBought ? 1 : 0));
+        frogBought.SetActive(true);
+        frogChecked.SetActive(false);
+        frogLocked.SetActive(false);
+        PlayerPrefs.SetInt("hatSelected", 100);
+        FindObjectOfType<AudioManager>().Play("RestartGame");
+
+    }
+
+
+
+
 
 }

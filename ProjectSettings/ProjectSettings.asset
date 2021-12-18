@@ -169,7 +169,7 @@ PlayerSettings:
   androidMaxAspectRatio: 2.1
   applicationIdentifier: {}
   buildNumber: {}
-  AndroidBundleVersionCode: 6
+  AndroidBundleVersionCode: 7
   AndroidMinSdkVersion: 19
   AndroidTargetSdkVersion: 30
   AndroidPreferredInstallLocation: 1
@@ -247,7 +247,7 @@ PlayerSettings:
   AndroidTargetArchitectures: 3
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: C:/Users/flori/OneDrive/Studium/Programmierung/RunOrRock/rock_or_run_keystore.keystore
+  AndroidKeystoreName: C:/Users/Florian Bruderer/OneDrive/Studium/Programmierung/RunOrRock/rock_or_run_keystore.keystore
   AndroidKeyaliasName: runorrock
   AndroidBuildApkPerCpuArchitecture: 0
   AndroidTVCompatibility: 0

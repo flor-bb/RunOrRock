@@ -122,3 +122,9 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: Denied
+    clip: {fileID: 8300000, guid: 4783982b484e8a54e83c23f0b34437a0, type: 3}
+    volume: 0.7
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}

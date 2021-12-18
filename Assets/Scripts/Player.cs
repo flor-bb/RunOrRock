@@ -38,6 +38,45 @@ public class Player : MonoBehaviour
             lama.SetActive(true);
             giraffe.SetActive(false);
             transform.localScale = new Vector3(1, 1, 0);
+       
+            switch (PlayerPrefs.GetInt("hatSelected"))
+            {
+                case 1:
+                    lamaZylinder.SetActive(true);
+                    lamaSanta.SetActive(false);
+                    lamaMagician.SetActive(false);
+                    lamaFrog.SetActive(false);
+                    break;
+                case 2:
+                    lamaZylinder.SetActive(false);
+                    lamaSanta.SetActive(true);
+                    lamaMagician.SetActive(false);
+                    lamaFrog.SetActive(false);
+                    break;
+
+                case 3:
+                    lamaZylinder.SetActive(false);
+                    lamaSanta.SetActive(false);
+                    lamaMagician.SetActive(true);
+                    lamaFrog.SetActive(false);
+                    break;
+
+                case 4:
+                    lamaZylinder.SetActive(false);
+                    lamaSanta.SetActive(false);
+                    lamaMagician.SetActive(false);
+                    lamaFrog.SetActive(true);
+                    break;
+
+                default:
+                    lamaZylinder.SetActive(false);
+                    lamaSanta.SetActive(false);
+                    lamaMagician.SetActive(false);
+                    lamaFrog.SetActive(false);
+
+                    break;
+
+            }
 
         }
         else if (PlayerPrefs.GetInt("selectedPlayer") == 1)
@@ -47,6 +86,45 @@ public class Player : MonoBehaviour
             transform.localScale = new Vector3(1.3f, 1.3f, 0);
             _speed = 6f;
 
+            switch (PlayerPrefs.GetInt("hatSelected"))
+            {
+                case 1:
+                    giraffeZylinder.SetActive(true);
+                    giraffeSanta.SetActive(false);
+                    giraffeMagician.SetActive(false);
+                    giraffeFrog.SetActive(false);
+                    break;
+                case 2:
+                    giraffeZylinder.SetActive(false);
+                    giraffeSanta.SetActive(true);
+                    giraffeMagician.SetActive(false);
+                    giraffeFrog.SetActive(false);
+                    break;
+
+                case 3:
+                    giraffeZylinder.SetActive(false);
+                    giraffeSanta.SetActive(false);
+                    giraffeMagician.SetActive(true);
+                    giraffeFrog.SetActive(false);
+                    break;
+
+                case 4:
+                    giraffeZylinder.SetActive(false);
+                    giraffeSanta.SetActive(false);
+                    giraffeMagician.SetActive(false);
+                    giraffeFrog.SetActive(true);
+                    break;
+
+                default:
+                    giraffeZylinder.SetActive(false);
+                    giraffeSanta.SetActive(false);
+                    giraffeMagician.SetActive(false);
+                    giraffeFrog.SetActive(false);
+
+                    break;
+
+            }
+
 
         }
         else
@@ -54,6 +132,45 @@ public class Player : MonoBehaviour
             lama.SetActive(true);
             giraffe.SetActive(false);
             transform.localScale = new Vector3(1, 1, 0);
+
+            switch (PlayerPrefs.GetInt("hatSelected"))
+            {
+                case 1:
+                    lamaZylinder.SetActive(true);
+                    lamaSanta.SetActive(false);
+                    lamaMagician.SetActive(false);
+                    lamaFrog.SetActive(false);
+                    break;
+                case 2:
+                    lamaZylinder.SetActive(false);
+                    lamaSanta.SetActive(true);
+                    lamaMagician.SetActive(false);
+                    lamaFrog.SetActive(false);
+                    break;
+
+                case 3:
+                    lamaZylinder.SetActive(false);
+                    lamaSanta.SetActive(false);
+                    lamaMagician.SetActive(true);
+                    lamaFrog.SetActive(false);
+                    break;
+
+                case 4:
+                    lamaZylinder.SetActive(false);
+                    lamaSanta.SetActive(false);
+                    lamaMagician.SetActive(false);
+                    lamaFrog.SetActive(true);
+                    break;
+
+                default:
+                    lamaZylinder.SetActive(false);
+                    lamaSanta.SetActive(false);
+                    lamaMagician.SetActive(false);
+                    lamaFrog.SetActive(false);
+
+                    break;
+
+            }
 
         }
 
@@ -98,11 +215,15 @@ public class Player : MonoBehaviour
             //flips the player
             if (PlayerPrefs.GetInt("selectedPlayer") == 0)
             {
-                _playerSprite.flipX = true;
+                _playerSprite.flipX = false;
+            }
+            else if (PlayerPrefs.GetInt("selectedPlayer") == 1)
+            {
+                transform.rotation = Quaternion.Euler(0, 0, 0);
             }
             else
             {
-                transform.rotation = Quaternion.Euler(0, 0, 0);
+                _playerSprite.flipX = false;
             }
             //reposition the hats
             //Zylinder
@@ -132,15 +253,19 @@ public class Player : MonoBehaviour
             {
                 _playerSprite.flipX = true;
             }
-            else
+            else if (PlayerPrefs.GetInt("selectedPlayer") == 1)
             {
                 transform.rotation = Quaternion.Euler(0, -180, 0);
+            }
+            else
+            {
+                _playerSprite.flipX = true;
             }
 
             //reposition the hats
             //Zylinder
-            lamaZylinder.transform.position = new Vector3(transform.position.x + 0.2f, transform.position.y + 0.95f, transform.position.z);
-            lamaZylinder.transform.eulerAngles = new Vector3(0, 0, 18.1f);
+            lamaZylinder.transform.position = new Vector3(transform.position.x - 0.2f, transform.position.y + 0.95f, transform.position.z);
+            lamaZylinder.transform.eulerAngles = new Vector3(0, 0,-31f);
 
 
             //Frog

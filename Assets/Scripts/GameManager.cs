@@ -8,7 +8,6 @@ public class GameManager : MonoBehaviour
 
     private static GameManager instance;
     [SerializeField] private Button helpButton;
-    //TODO Change this later
     private int helpScore = 20;
     private int vulcanoScore = 23;
     private Image helpButtonImg;
@@ -42,7 +41,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-       // PlayerPrefs.DeleteAll();
+       //  PlayerPrefs.DeleteAll();
         bestScore = PlayerPrefs.GetInt("BestScore");
         goldCount = PlayerPrefs.GetInt("GoldCount");
 
